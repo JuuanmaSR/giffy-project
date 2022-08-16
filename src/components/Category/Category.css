@@ -1,0 +1,19 @@
+.app-list-trending-gifs {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 0;
+    justify-content: center;
+}
+
+.app-list-trending-gifs li {
+    list-style: none;
+	padding: 0.3rem;
+	margin: 0.2rem;
+  font-size: 1.2rem;
+}
+
+.app-list-trending-gifs li a:hover {
+  color: #ffffff;
+}

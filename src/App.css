@@ -19,11 +19,17 @@
 }
 
 button {
-  font-size: 40px;
-  margin: 10px 0 0 10px;
+  font-size: 25px;
+  margin-top: 20px;
+  padding: 5px;
+  box-shadow: 0 4px 4px rgb(30, 29, 29);
   border-radius: 25px;
+  border: none;
   background-color: #06d2b2;
-  color: aliceblue;
+  color: #eee;
+}
+button:hover {
+  background-color: #7ef5e3;
 }
 
 a {
@@ -32,6 +38,20 @@ a {
   font-size: 32px;
 }
 
+
 .loading-text {
   font-size: 70px;
+}
+.app-logo {
+  width: 10%;
+  min-width: 60px;
+  border-radius: 60px;
+}
+.app-logo:hover {
+  box-shadow: 1px 1px 2px #06d2b2;
+}
+
+.text-app-logo {
+  color: #06d2b2;
+  margin: 0 ;
 }

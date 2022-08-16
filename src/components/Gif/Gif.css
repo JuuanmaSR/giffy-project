@@ -1,14 +1,13 @@
 .Gif {
-    border: 1px solid #eee;
-    border-radius: 6px;
-    color: #eee;
+    color: #06d2b4;
     text-decoration: none;
     display: flex;
     flex-direction: column;
-    margin: 16px;
-    width: 100%;
+    align-items: center;
 }
 
 .Gif img {
+    width: 100%;
     object-fit: contain;
+    vertical-align: top;
 }
