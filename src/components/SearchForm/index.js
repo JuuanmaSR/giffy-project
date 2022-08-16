@@ -5,7 +5,7 @@ const SearchForm = ({onSubmit}) => {
 
     const handleSubmit = evt => {
         evt.preventDefault()
-        onSubmit(`/search/${keyword}`)
+        onSubmit({keyword})
     }
     const handleChange = evt => {
         setKeyword(evt.target.value)
@@ -21,4 +21,4 @@ const SearchForm = ({onSubmit}) => {
 
 
 
-export default SearchForm
+export default React.memo(SearchForm)
