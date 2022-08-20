@@ -4,6 +4,7 @@ import { GifsContextProvider } from './context/GifsContext'
 import Home from './pages/Home'
 import SearchResults from './pages/SearchResults'
 import Detail from './pages/Detail';
+import PageNotFound from 'pages/PageNotFound';
 import logo from './logo.png'
 
 function App() {
@@ -26,6 +27,10 @@ function App() {
             <Route
               component={SearchResults}
               path='/search/:keyword'
+            />
+            <Route
+              component={PageNotFound}
+              path = '/404'
             />
         </GifsContextProvider>
       </section>

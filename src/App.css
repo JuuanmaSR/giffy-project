@@ -53,5 +53,11 @@ a {
 
 .text-app-logo {
   color: #06d2b2;
-  margin: 0 ;
+  margin: 10px ;
+}
+
+input {
+  border-radius: 2px;
+  padding: 4px;
+  border: none;
 }
