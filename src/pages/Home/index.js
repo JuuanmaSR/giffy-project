@@ -4,7 +4,7 @@ import useGifs from '../../hooks/useGifs'
 import ListOfGifs from 'components/ListOfGifs/ListOfGifs'
 import LazyTrending from 'components/TrendingSearches/index'
 import SearchForm from "components/SearchForm"
-
+import { Helmet } from "react-helmet"
 
 const Home = () => {
     const [path, pushLocation] = useLocation()
@@ -12,12 +12,18 @@ const Home = () => {
     const { gifs } = useGifs()
 
     const handleSubmit = useCallback(({ keyword }) => {
-        pushLocation(`/search/${keyword}`)
+        pushLocation(`/search/${(keyword)}`)
     }, [pushLocation])
 
+    
 
     return (
         <>
+            <Helmet>
+                <title>
+                    Home | Giffy
+                </title>
+            </Helmet>
             <SearchForm
                 onSubmit={handleSubmit}
             />
