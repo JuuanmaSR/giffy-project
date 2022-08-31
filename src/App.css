@@ -19,19 +19,26 @@
 }
 
 button {
-  font-size: 25px;
+  display: inline-block;
+  font-size: 1rem;
   margin-top: 20px;
-  padding: 5px;
+  padding: 1rem 2rem;
+  text-decoration: none;
   box-shadow: 0 4px 4px rgb(30, 29, 29);
   border-radius: 25px;
   border: none;
-  background-color: #06d2b2;
-  color: #eee;
+  background: #0069ed;
+  color: #ffffff;
+  cursor: pointer;
+  text-align: center;
+  transition: background 250ms ease-in-out, transform 150ms ease;
 }
-button:hover {
-  background-color: #7ef5e3;
+button:hover, button:focus {
+  background-color: #0053ba;
 }
-
+button:active {
+  transform: scale(0.99);
+}
 a {
   text-decoration: none;
   color: #06d2b2;
@@ -54,10 +61,4 @@ a {
 .text-app-logo {
   color: #06d2b2;
   margin: 10px ;
-}
-
-input {
-  border-radius: 2px;
-  padding: 4px;
-  border: none;
 }
