@@ -21,6 +21,15 @@
     font-size: 1rem;
 }
 
+.form-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 20px;
+    width: 250px;
+}
+
+
 
 @media only screen and (max-width: 600px) {
     .searchForm {

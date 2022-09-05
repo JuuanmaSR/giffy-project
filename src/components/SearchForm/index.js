@@ -1,79 +1,56 @@
 import React, { useReducer } from "react";
 import { useLocation } from 'wouter'
+import useForm from "./hook";
 import './searchForm.css'
 
 const RATINGS = ['g', 'pg', 'pg-13', 'r']
-const INITIAL_STATE = {
-    keyword: '',
-    rating: 'g',
-    language: 'en'
-}
-const ACTIONS = {
-    UPDATE_KEYWORD: 'update_keyword',
-    UPDATE_RATING: 'update_rating',
-    UPDATE_LANGUAGE: 'update_language',
-    RESET_STATE: 'reset_state',
-}
-const reducer = (state, action) => {
-    switch (action.type) {
-        case ACTIONS.UPDATE_KEYWORD:
-            return {
-                ...state,
-                keyword: action.payload,
-            }
-        case ACTIONS.UPDATE_RATING:
-            return {
-                ...state,
-                rating: action.payload
-            }
-        case ACTIONS.UPDATE_LANGUAGE:
-            return {
-                ...state,
-                language: action.payload
-            }
-        case ACTIONS.RESET_STATE:
-            return INITIAL_STATE
-        default:
-            return state
-    }
-}
+
+
 
 const SearchForm = ({ initialKeyword = '', initialRating = 'g', initialLanguage = 'en' }) => {
     const [_, pushLocation] = useLocation()
 
-    // Reducer ....
-    const [state, dispatch] = useReducer(reducer, {
-        keyword: decodeURIComponent(initialKeyword),
-        rating: initialRating,
-        language: initialLanguage,
-    })
+    const {
+        keyword,
+        rating,
+        language,
+        updateKeyword,
+        updateRating,
+        updateLanguage,
+        reset,
+    } = useForm({ initialKeyword, initialRating, initialLanguage })
 
-    const { keyword, rating, language } = state
+
+    const onSubmit = ({ keyword }) => {
+        if (keyword !== '') {
+            pushLocation(`/search/${(keyword)}/${rating}/${language}`)
+        }
+    }
 
     const handleSubmit = evt => {
         evt.preventDefault()
-        pushLocation(`/search/${(keyword)}/${rating}/${language}`)
+        onSubmit({keyword})
     }
-    const handleChange = evt => {
-        dispatch({ type: ACTIONS.UPDATE_KEYWORD, payload: evt.target.value })
+    const handleChangeKeyword = evt => {
+        updateKeyword({ keyword: evt.target.value })
     }
 
     const handleChangeRating = evt => {
-        dispatch({ type: ACTIONS.UPDATE_RATING, payload: evt.target.value })
+        updateRating({ rating: evt.target.value })
     }
 
     const handleChangeLanguage = evt => {
-        dispatch({ type: ACTIONS.UPDATE_LANGUAGE, payload: evt.target.value })
+        updateLanguage({ language: evt.target.value })
     }
 
     const handleStateReset = () => {
-        dispatch({type: ACTIONS.RESET_STATE})
+        reset()
     }
 
     return <>
         <form onSubmit={handleSubmit} className='searchForm'>
             <input placeholder='Search gifs here...' type='text' value={keyword}
-                onChange={handleChange} />
+                onChange={handleChangeKeyword} />
             <select value={rating} onChange={handleChangeRating}>
                 <option disabled>Rating type</option>
                 {RATINGS.map(rating => <option key={rating}>{rating}</option>)}
@@ -113,7 +90,11 @@ const SearchForm = ({ initialKeyword = '', initialRating = 'g', initialLanguage 
                 <option value="vi">Vietnamese - Tiếng Việt</option>
             </select>
         </form>
-        <button onClick={handleStateReset}>Reset</button>
+        <div className="form-buttons">
+            <button onClick={handleSubmit}>Buscar</button>
+            <button onClick={handleStateReset}>Reset</button>
+        </div>
+
     </>
 }
 
