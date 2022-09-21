@@ -6,9 +6,9 @@ import { Helmet } from "react-helmet"
 
 const Detail = ({ params }) => {
     const { gif, isLoading, isError } = useSingleGif({ id: params.id })
-
-    const description = gif ? `Detail of ${gif.title}` : ''
     const title = gif ? gif.title : ''
+
+    const description = gif ? `Detail of ${title}` : ''
 
     if (isLoading) {
         return (
@@ -20,7 +20,7 @@ const Detail = ({ params }) => {
             </>
         )
     }
-    if (isError) return <Redirect to='/404' />
+    if (isError) return <Redirect to='/invalid-id' />
     if (!gif) return null
 
     return <>
@@ -31,7 +31,7 @@ const Detail = ({ params }) => {
             <meta name="description" content={description}>
             </meta>
         </Helmet>
-        <h3 className="app-title">{gif.title}</h3>
+        <h3 className="app-title">{title}</h3>
         <Gif {...gif} />
     </>
 }
