@@ -1,0 +1,26 @@
+.giffy-header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: #241F21;
+    padding: 10px;
+}
+
+.giffy-header a {
+    color: #fff;
+}
+
+.giffy-header a:hover {
+    text-decoration: underline;
+}
+
+.nv-logout-button{
+    padding: 0;
+    background-color: transparent;
+    font-size: 32px;
+}
+
+.nv-logout-button:hover {
+    text-decoration: underline;
+    background-color: transparent;
+}

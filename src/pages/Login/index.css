@@ -1,0 +1,29 @@
+.loginForm{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 1rem;
+    align-items: center;
+}
+
+.loginForm input {
+    border-radius: 2px;
+    padding: 1rem 1rem;
+    border: none;
+    font-size: 1rem;
+    margin: 6px;
+}
+
+.loginForm button {
+    margin-left: 4px;
+}
+
+@media only screen and  (max-width: 600px) {
+    .loginForm {
+        flex-direction: column;
+    }
+
+    .loginForm button {
+        margin-top: 10px;
+    }
+}
