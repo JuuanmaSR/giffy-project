@@ -10,7 +10,8 @@ const Gif = ({ id, title, url }) => {
                 <Fav id={id} />
             </div>
             <Link to={`/gif/${id}`} >
-                <img loading='lazy' key={id} src={url} alt={title} />
+                    <img loading='lazy' key={id} src={url} alt={title} />
+                    <h4 className='gif-title'>{title}</h4>
             </Link>
         </div>
 

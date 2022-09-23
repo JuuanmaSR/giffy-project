@@ -21,3 +21,14 @@
     margin-bottom: 8px;
     width: 100%;
 }
+
+.gif-title {
+    color: #FFF;
+    padding: 2px 10px 2px 2px;
+    background: #282C34;
+    opacity: 50%;
+    font-size: 10px;
+    position: absolute;
+    bottom: -13px;
+    left: 0px;
+}
