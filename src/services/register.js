@@ -13,8 +13,7 @@ const register = ({ username, password }) => {
         }
         return res.json()
     }).then(res => {
-        const { savedUser, error } = res
-        error ? console.log(error) : console.log(savedUser)        
+        return true
     })
 }
 

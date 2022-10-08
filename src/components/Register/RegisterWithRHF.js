@@ -1,28 +1,23 @@
-import React, { useState } from "react";
-import registerService from "services/register";
+import React from "react";
+import useUser from "hooks/useUser";
 import { useForm } from 'react-hook-form'
 import './Register.css'
 
 const Register = () => {
     const { handleSubmit, register, formState: { errors } } = useForm()
-    const [registered, setRegistered] = useState(false)
-    const [isSubmitting, setIsSubmitting] = useState(false)
+    const { register: registerService, isRegistered, isRegisterLoading, hasRegisterError } = useUser()
 
     const onSubmit = (values) => {
-        setIsSubmitting(true)
         registerService(values)
-            .then(() => {
-                setRegistered(true)
-                setIsSubmitting(false)
-            }).catch((error) => {
-                setIsSubmitting(false)
-            })
+
     }
 
-    if (registered) {
+    if (isRegistered) {
         return <h4>Felicitaciones! Usted a sido registrado correctamente!</h4>
     }
-
+    if (hasRegisterError) {
+        return <h4>Credentials are invalid!</h4>
+    }
     return <>
         <h2>Formulario de registro</h2>
         <form className="loginForm" onSubmit={handleSubmit(onSubmit)}>
@@ -52,7 +47,7 @@ const Register = () => {
             />
             {errors.password && <small className="register-error-message login-error-message">{errors.password.message || errors.password.type}</small>}
 
-            <button className="button" type="submit" disabled={isSubmitting}>
+            <button className="button" type="submit" disabled={isRegisterLoading}>
                 Registrarse
             </button>
         </form>
