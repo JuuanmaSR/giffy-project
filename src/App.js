@@ -6,6 +6,7 @@ import logo from './logo.png'
 import Home from 'pages/Home'
 import Header from 'components/Header'
 import Login from 'pages/Login'
+import Register from 'pages/Register'
 import SearchResults from 'pages/SearchResults'
 import Detail from 'pages/Detail';
 import PageNotFound from 'pages/PageNotFound';
@@ -39,6 +40,10 @@ function App() {
               <Route
                 component={Login}
                 path='/login'
+              />
+              <Route
+                component={Register}
+                path='/register'
               />
               <Route
                 component={PageNotFound}
