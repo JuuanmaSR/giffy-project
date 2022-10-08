@@ -1,0 +1,42 @@
+.loginForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 1rem;
+    align-items: center;
+}
+
+.loginForm input {
+    border-radius: 2px;
+    padding: 1rem 1rem;
+    border: none;
+    font-size: 1rem;
+    margin: 6px;
+}
+
+.loginForm button {
+    margin-top: 15px;
+}
+
+.login-error-message {
+   color: #282C34;
+   margin-bottom: 10px;
+   background: #E99E9B;
+   border-radius: 20px;
+   padding: 1rem 2rem;
+}
+
+.login-waiting-message {
+   color: #282C34;
+   margin-bottom: 10px;
+   background: #A1E4BA;
+   border-radius: 20px;
+    padding: 1rem 2rem;
+}
+ 
+@media only screen and (max-width: 600px) {
+    .login-error-message, .login-waiting-message {
+        width: 1rem 1rem
+    }
+    
+}
