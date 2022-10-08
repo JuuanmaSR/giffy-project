@@ -1,4 +1,4 @@
-const ENDPOINT = 'http://localhost:8000'
+const ENDPOINT = 'http://localhost:8000/api'
 
 const addFav = ({ id, jwt }) => {
     return fetch(`${ENDPOINT}/favs`, {

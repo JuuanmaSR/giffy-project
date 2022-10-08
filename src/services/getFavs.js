@@ -1,4 +1,4 @@
-const ENDPOINT = 'http://localhost:8000'
+const ENDPOINT = 'http://localhost:8000/api'
 
 const getFavs = ({ jwt }) => {
     return fetch(`${ENDPOINT}/favs`, {
@@ -9,11 +9,14 @@ const getFavs = ({ jwt }) => {
         }
     }).then(res => {
         if (!res.ok) {
-            throw new Error('Response is NOT ok')
+            throw new Error('Response is NOT ok.')
         }
         return res.json()
     }).then(res => {
-        const {favorites} = res
+        const {favorites, error} = res
+        if (error) {
+            throw new Error('User is not logged in.')
+        }
         return favorites 
     })
 }

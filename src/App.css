@@ -38,6 +38,10 @@ button:hover, button:focus {
 button:active {
   transform: scale(0.99);
 }
+button[disabled] {
+  opacity: .3;
+  pointer-events: none;
+}
 a {
   text-decoration: none;
   color: #06d2b2;
