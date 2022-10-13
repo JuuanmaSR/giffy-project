@@ -20,9 +20,8 @@ function App() {
         <Header />
         <section className="App-content">
           <Link to='/'>
-            <img className='app-logo' alt='Giffy Logo' src={logo} />
+            <h2 className='text-app-logo' >Giffy</h2>
           </Link>
-          <h2 className='text-app-logo' >Giffy</h2>
           <GifsContextProvider>
             <Switch>
               <Route
