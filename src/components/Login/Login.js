@@ -1,57 +1,75 @@
 import useUser from "hooks/useUser"
-import React, { useEffect, useState } from "react"
+import React, { useEffect } from "react"
+import { useForm } from 'react-hook-form'
 import { useLocation } from "wouter"
 import './Login.css'
 
 const Login = () => {
-    const [username, setUsername] = useState('')
-    const [password, setPassword] = useState('')
+    const { handleSubmit, register, formState: { errors } } = useForm()
+    const { login: loginService, isLogged, isLoginLoading, hasLoginError } = useUser()
     const [_, navigate] = useLocation()
-    const { login, isLogged, isLoginLoading, hasLoginError } = useUser()
 
     useEffect(() => {
         if (isLogged) {
-            navigate('/')
+            const timeout = setTimeout(() => {
+                navigate('/')
+            }, 3000)
+            return () => clearTimeout(timeout)
         }
     }, [isLogged, navigate])
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        login({ username, password })
-        //navigate('/')
+    const onSubmit = (values) => {
+        loginService(values)
     }
 
-    const handleUsernameChange = evt => {
-        setUsername(evt.target.value)
-    }
+    return <>
+        {isLogged &&
+            <div className="login-waiting-message">
+                <strong>Felicitaciones! Usted ha iniciado sesión con exito!</strong>
+            </div>
+        }
+        {isLoginLoading &&
+            <div className="login-waiting-message">
+                <strong>Checking credentials...</strong>
+            </div>
+        }
+        {hasLoginError &&
+            <div className="login-error-message">
+                <strong>Credentials are invalid</strong>
+            </div>
+        }
+        {!isLoginLoading &&
+            <form onSubmit={handleSubmit(onSubmit)} className='loginForm'>
+                <input
+                    {...register('username', {
+                        required: 'This field is required',
+                        minLength: { value: 4, message: 'Username length must be greater than 4' },
+                        maxLength: { value: 25, message: 'Username length must be less than 25' }
+                    })}
+                    name='username'
+                    className={errors.username ? "error-input" : ''}
+                    placeholder='Username'
+                />
+                {errors.username && <small className="login-error-message">{errors.username.message || errors.username.type}</small>}
+                <input
+                    {...register('password', {
+                        required: 'This field is required',
+                        minLength: { value: 3, message: 'Password length must be greater than 3' },
+                        maxLength: { value: 25, message: 'Password length must be less than 25' }
+                    })}
+                    name='password'
+                    type='password'
+                    className={errors.password ? "error-input" : ''}
+                    placeholder='Password'
+                />
+                {errors.password && <small className="login-error-message">{errors.password.message || errors.password.type}</small>}
 
-    const handlePasswordChange = evt => {
-        setPassword(evt.target.value)
-    }
-    return (
-        <>
-            {isLoginLoading &&
-                <div className="login-waiting-message">
-                    <strong>Checking credentials...</strong>
-                </div>
-            }
-            {hasLoginError &&
-                <div className="login-error-message">
-                    <strong>Credentials are invalid</strong>
-                </div>
-            }
-            {!isLoginLoading &&
-                <form onSubmit={handleSubmit} className='loginForm'>
-                    <input placeholder="Username" value={username} onChange={handleUsernameChange} />
-                    <input placeholder="Password" type='password' value={password} onChange={handlePasswordChange} />
-                    <button>Logín</button>
+                <button className="button" disabled={isLoginLoading}>Logín</button>
 
-                </form>
-            }
+            </form>
+        }
+    </>
 
-
-        </>
-    )
 }
 
 

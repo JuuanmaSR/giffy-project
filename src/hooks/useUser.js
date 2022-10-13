@@ -26,7 +26,7 @@ const useUser = () => {
     }, [setJWT])
 
     const register = ({ username, password }) => {
-        setRegisterState({ loading: true, error: false })
+        setRegisterState({ loading: true, error: false, isRegistered: false})
         registerService({ username, password })
             .then(() => {
                 setRegisterState({ loading: false, error: false, isRegistered: true })

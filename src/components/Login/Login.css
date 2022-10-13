@@ -19,11 +19,13 @@
 }
 
 .login-error-message {
-   color: #282C34;
-   margin-bottom: 10px;
-   background: #E99E9B;
+   color: #442827;
+   font-weight: bolder;
    border-radius: 20px;
-   padding: 1rem 2rem;
+   margin-bottom: 10px;
+   background: #F6A7A3;
+   padding: .5rem 3rem;
+
 }
 
 .login-waiting-message {
@@ -33,7 +35,9 @@
    border-radius: 20px;
     padding: 1rem 2rem;
 }
- 
+.error-input {
+    border: 2px solid #8E120E!important;
+}
 @media only screen and (max-width: 600px) {
     .login-error-message, .login-waiting-message {
         width: 1rem 1rem
