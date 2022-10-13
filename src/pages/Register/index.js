@@ -4,6 +4,7 @@ import RegisterWithRHF from "components/Register/RegisterWithRHF";
 
 const RegisterPage = () => {
     return <>
+        <h2>Formulario de registro</h2>
         <RegisterWithRHF />
     </>
 }
