@@ -1,3 +1,4 @@
+import Button from "components/Button/Button";
 import React from "react";
 import { useLocation } from 'wouter'
 import useForm from "./hook";
@@ -29,7 +30,7 @@ const SearchForm = ({ initialKeyword = '', initialRating = 'g', initialLanguage 
 
     const handleSubmit = evt => {
         evt.preventDefault()
-        onSubmit({keyword})
+        onSubmit({ keyword })
     }
     const handleChangeKeyword = evt => {
         updateKeyword({ keyword: evt.target.value })
@@ -91,8 +92,8 @@ const SearchForm = ({ initialKeyword = '', initialRating = 'g', initialLanguage 
             </select>
         </form>
         <div className="form-buttons">
-            <button onClick={handleSubmit}>Buscar</button>
-            <button onClick={handleStateReset}>Reset</button>
+            <Button onClick={handleSubmit}>Buscar</Button>
+            <Button onClick={handleStateReset}>Reset</Button>
         </div>
 
     </>

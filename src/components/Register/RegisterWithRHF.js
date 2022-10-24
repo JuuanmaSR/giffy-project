@@ -3,6 +3,7 @@ import useUser from "hooks/useUser";
 import { useForm } from 'react-hook-form'
 import { useLocation } from 'wouter'
 import './Register.css'
+import { Button } from "components/Button/styles";
 
 const Register = () => {
 
@@ -70,9 +71,9 @@ const Register = () => {
                 />
                 {errors.password && <small className="login-error-message">{errors.password.message || errors.password.type}</small>}
 
-                <button className="button" type="submit" disabled={isRegisterLoading}>
+                <Button  type="submit" disabled={isRegisterLoading}>
                     Registrarse
-                </button>
+                </Button>
             </form>
         }
 

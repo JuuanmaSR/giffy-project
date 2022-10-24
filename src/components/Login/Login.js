@@ -1,3 +1,4 @@
+import { Button } from "components/Button/styles"
 import useUser from "hooks/useUser"
 import React, { useEffect } from "react"
 import { useForm } from 'react-hook-form'
@@ -64,7 +65,7 @@ const Login = () => {
                 />
                 {errors.password && <small className="login-error-message">{errors.password.message || errors.password.type}</small>}
 
-                <button className="button" disabled={isLoginLoading}>Logín</button>
+                <Button disabled={isLoginLoading}>Logín</Button>
 
             </form>
         }
