@@ -1,3 +1,4 @@
+import { Button } from "components/Button/styles";
 import React from "react";
 import ReactDOM from "react-dom";
 import './Modal.css'
@@ -5,7 +6,7 @@ import './Modal.css'
 const Modal = ({ children, onClose }) => {
     return <div className="modal">
         <div className="modal-content">
-            <button className="modal-button" onClick={onClose}>X</button>
+            <Button id="modal-button" onClick={onClose}>X</Button>
             {children}
         </div>
     </div>
