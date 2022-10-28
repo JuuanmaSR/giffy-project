@@ -1,7 +1,6 @@
 import { Route, Link, Switch } from 'wouter'
 import { GifsContextProvider } from './context/GifsContext'
 import { UserContextProvider } from './context/UserContext'
-import logo from './logo.png'
 
 import Home from 'pages/Home'
 import Header from 'components/Header'
