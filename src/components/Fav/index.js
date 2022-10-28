@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
 import useUser from "hooks/useUser"
+import { FavButton } from "./styles"
 import ModalPortal from "components/Modal"
 import Login from "components/Login/Login"
-import './index.css'
-
 
 const Fav = ({ id }) => {
     const { isLogged, addFav, deleteFav, favs } = useUser()
@@ -12,8 +11,8 @@ const Fav = ({ id }) => {
 
     const handleClick = () => {
         if (!isLogged) return setShowModal(true)
-        isFaved? deleteFav({id}) : addFav({id})
-        
+        isFaved ? deleteFav({ id }) : addFav({ id })
+
     }
     const handleAutoClose = () => {
         if (isLogged) return setShowModal(false)
@@ -37,9 +36,9 @@ const Fav = ({ id }) => {
 
 
     return <>
-        <button className="fav-button" onClick={handleClick}>
+        <FavButton className="fav-button" onClick={handleClick}>
             <span aria-label={label} role='img' className={emoji}></span>
-        </button>
+        </FavButton>
         {showModal && <ModalPortal onClose={handleClose} {...handleAutoClose()}><Login /></ModalPortal>}
     </>
 }
