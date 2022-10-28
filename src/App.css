@@ -16,7 +16,7 @@ body{
 }
 
 .App-content {
-  background-color: #282c34;
+  background-color: var(--theme-body-bg);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -42,7 +42,7 @@ a {
 }
 
 .text-app-logo {
-  color: #06d2b2;
+  color: var(--theme-primary-color);
   font-size: 3.5rem;
   margin: 20px ;
   text-shadow: 0px 4px 4px rgb(30 29 29);
