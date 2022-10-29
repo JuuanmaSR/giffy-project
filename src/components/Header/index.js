@@ -1,8 +1,8 @@
 import React from "react"
 import logo from '../../logo.png'
-import { Link } from "wouter"
+import Button from "components/Button/Button"
+import { Header as StyledHeader, HeaderImg } from "./styles"
 import useUser from "hooks/useUser"
-import './index.css'
 
 const Header = () => {
     //const isLogged = false
@@ -13,21 +13,21 @@ const Header = () => {
     }
 
     return (
-        <header className="giffy-header">
-            <Link to="/">
-                <img className='app-logo' alt='Giffy Logo' src={logo} />
-            </Link>
+        <StyledHeader>
+            <Button to="/">
+                <HeaderImg alt='Giffy Logo' src={logo} />
+            </Button>
             {
-                isLogged ? <button className="nv-logout-button" onClick={handleClick}>Logout</button> :
+                isLogged ? <Button onClick={handleClick}>Logout</Button> :
                     <>
                         <div>
-                            <Link to="/login">Logín</Link>
-                            <Link to="/register">Register</Link>
+                            <Button to="/login">Logín</Button>
+                            <Button to="/register">Register</Button>
                         </div>
 
                     </>
             }
-        </header>
+        </StyledHeader>
     )
 }
 
