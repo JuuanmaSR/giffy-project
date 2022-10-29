@@ -1,17 +1,18 @@
 import styled from "@emotion/styled";
-import { Link as LinkWouter} from 'wouter'
+import { Link as LinkWouter } from 'wouter'
 
-const buttonColor = (props) => props.theme.colors.secondary 
+const buttonPrimaryColor = props => props.theme.buttons.primary
 
 export const Link = styled(LinkWouter)`
     display: inline-block;
     font-size: 1rem;
+    margin: 0 12px ;
     padding: 1rem 2rem;
     text-decoration: none;
     box-shadow: 0 4px 4px rgb(30, 29, 29);
     border-radius: 25px;
     border: none;
-    background: ${buttonColor};
+    background: ${buttonPrimaryColor};
     color: #ffffff;
     cursor: pointer;
     text-align: center;
