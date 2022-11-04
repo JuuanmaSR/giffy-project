@@ -7,7 +7,7 @@ export const Link = styled(LinkWouter)`
     display: inline-block;
     font-size: 1rem;
     margin: 0 12px ;
-    padding: 1rem 2rem;
+    padding: 0.7rem 2rem;
     text-decoration: none;
     box-shadow: 0 4px 4px rgb(30, 29, 29);
     border-radius: 25px;
