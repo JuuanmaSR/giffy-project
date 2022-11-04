@@ -1,7 +1,7 @@
 .ListOfGifs {
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(200px, 1fr));
-    grid-gap: 0 15px;
+    grid-gap: 15px 15px;
     align-items: center;
     min-height: 100vh;
 }
