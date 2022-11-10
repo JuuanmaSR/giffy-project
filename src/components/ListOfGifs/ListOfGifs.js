@@ -1,8 +1,10 @@
 import Gif from "../Gif/Gif"
-import './ListOfGifs.css'
+import { GifContainer } from "./styles"
+
+
 const ListOfGifs = ({ gifs }) => {
 
-    return <div className="ListOfGifs">
+    return <GifContainer className="ListOfGifs">
         {
             gifs.map(({ id, title, url }) => {
                 return <Gif
@@ -13,7 +15,7 @@ const ListOfGifs = ({ gifs }) => {
                 />
             })
         }
-    </div>
+    </GifContainer>
 
 
 }
