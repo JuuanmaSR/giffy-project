@@ -2,7 +2,7 @@ import Button from "components/Button/Button";
 import React from "react";
 import { useLocation } from 'wouter'
 import useForm from "./hook";
-import './searchForm.css'
+import { ButtonsContainer, Input, SearchForm as SearchFormContainer, Select } from "./styles"
 
 const RATINGS = ['g', 'pg', 'pg-13', 'r']
 
@@ -49,14 +49,14 @@ const SearchForm = ({ initialKeyword = '', initialRating = 'g', initialLanguage 
     }
 
     return <>
-        <form onSubmit={handleSubmit} className='searchForm'>
-            <input placeholder='Search gifs here...' type='text' value={keyword}
+        <SearchFormContainer onSubmit={handleSubmit}>
+            <Input placeholder='Search gifs here...' type='text' value={keyword}
                 onChange={handleChangeKeyword} />
-            <select value={rating} onChange={handleChangeRating}>
+            <Select value={rating} onChange={handleChangeRating}>
                 <option disabled>Rating type</option>
                 {RATINGS.map(rating => <option key={rating}>{rating}</option>)}
-            </select>
-            <select className="languages-select" value={language} onChange={handleChangeLanguage}>
+            </Select>
+            <Select value={language} onChange={handleChangeLanguage}>
                 <option disabled>Select Language</option>
                 <option value="ar">Arabic - العربية</option>
                 <option value="bn">Bengali - বাংলা</option>
@@ -89,12 +89,12 @@ const SearchForm = ({ initialKeyword = '', initialRating = 'g', initialLanguage 
                 <option value="tr">Turkish - Türkçe</option>
                 <option value="uk">Ukrainian - українська</option>
                 <option value="vi">Vietnamese - Tiếng Việt</option>
-            </select>
-        </form>
-        <div className="form-buttons">
+            </Select>
+        </SearchFormContainer>
+        <ButtonsContainer>
             <Button onClick={handleSubmit}>Buscar</Button>
             <Button onClick={handleStateReset}>Reset</Button>
-        </div>
+        </ButtonsContainer>
 
     </>
 }
