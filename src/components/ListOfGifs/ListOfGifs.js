@@ -4,7 +4,7 @@ import { GifContainer } from "./styles"
 
 const ListOfGifs = ({ gifs }) => {
 
-    return <GifContainer className="ListOfGifs">
+    return <GifContainer>
         {
             gifs.map(({ id, title, url }) => {
                 return <Gif

@@ -1,5 +1,6 @@
 export const bps = {
-    greaterThanMobile: '@media screen and (min-width: 880px)'
+    greaterThanMobile: '@media screen and (min-width: 880px)',
+    smallerThanDesktop: '@media only screen and (max-width: 600px)'
 }
 
 export const theme = {

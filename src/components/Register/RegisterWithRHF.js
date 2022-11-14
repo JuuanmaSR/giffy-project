@@ -2,8 +2,8 @@ import React, { useEffect } from "react";
 import useUser from "hooks/useUser";
 import { useForm } from 'react-hook-form'
 import { useLocation } from 'wouter'
-import './Register.css'
 import { Button } from "components/Button/styles";
+import { ErrorMessage, WaitingMessage, LoginForm as RegisterForm, Input } from "components/Login/styles";
 
 const Register = () => {
 
@@ -29,24 +29,24 @@ const Register = () => {
 
     return <>
         {isRegistered &&
-            <div className="login-waiting-message">
+            <WaitingMessage>
                 <strong>Felicitaciones! Usted ha sido registrado con exito!</strong>
-            </div>
+            </WaitingMessage>
         }
         {isRegisterLoading &&
-            <div className="login-waiting-message">
+            <WaitingMessage >
                 <strong>Checking credentials...</strong>
-            </div>
+            </WaitingMessage>
         }
         {hasRegisterError &&
-            <div className="login-error-message">
+            <ErrorMessage>
                 <strong>Credentials are invalid</strong>
-            </div>
+            </ErrorMessage>
         }
         {!isRegisterLoading &&
-            <form className="loginForm" onSubmit={handleSubmit(onSubmit)}>
+            <RegisterForm onSubmit={handleSubmit(onSubmit)}>
 
-                <input
+                <Input
                     {...register('username', {
                         required: 'This field is required',
                         minLength: { value: 4, message: 'Username length must be greater than 4' },
@@ -56,8 +56,8 @@ const Register = () => {
                     className={errors.username ? "error-input" : ""}
                     placeholder='Username'
                 />
-                {errors.username && <small className="login-error-message">{errors.username.message || errors.username.type}</small>}
-                <input
+                {errors.username && <ErrorMessage className="login-error-message">{errors.username.message || errors.username.type}</ErrorMessage>}
+                <Input
                     {...register('password',
                         {
                             required: 'This field is required',
@@ -69,12 +69,12 @@ const Register = () => {
                     className={errors.password ? "error-input" : ""}
                     placeholder='Password'
                 />
-                {errors.password && <small className="login-error-message">{errors.password.message || errors.password.type}</small>}
+                {errors.password && <ErrorMessage className="login-error-message">{errors.password.message || errors.password.type}</ErrorMessage>}
 
-                <Button  type="submit" disabled={isRegisterLoading}>
+                <Button type="submit" disabled={isRegisterLoading}>
                     Registrarse
                 </Button>
-            </form>
+            </RegisterForm>
         }
 
     </>

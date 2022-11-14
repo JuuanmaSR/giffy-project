@@ -3,6 +3,7 @@ import useUser from "hooks/useUser"
 import React, { useEffect } from "react"
 import { useForm } from 'react-hook-form'
 import { useLocation } from "wouter"
+import { ErrorMessage, WaitingMessage, LoginForm, Input, ErrorInput } from "./styles"
 import './Login.css'
 
 const Login = () => {
@@ -25,23 +26,23 @@ const Login = () => {
 
     return <>
         {isLogged &&
-            <div className="login-waiting-message">
+            <WaitingMessage>
                 <strong>Felicitaciones! Usted ha iniciado sesión con exito!</strong>
-            </div>
+            </WaitingMessage>
         }
         {isLoginLoading &&
-            <div className="login-waiting-message">
+            <WaitingMessage>
                 <strong>Checking credentials...</strong>
-            </div>
+            </WaitingMessage>
         }
         {hasLoginError &&
-            <div className="login-error-message">
+            <ErrorMessage>
                 <strong>Credentials are invalid</strong>
-            </div>
+            </ErrorMessage>
         }
         {!isLoginLoading &&
-            <form onSubmit={handleSubmit(onSubmit)} className='loginForm'>
-                <input
+            <LoginForm onSubmit={handleSubmit(onSubmit)}>
+                <Input
                     {...register('username', {
                         required: 'This field is required',
                         minLength: { value: 4, message: 'Username length must be greater than 4' },
@@ -51,8 +52,8 @@ const Login = () => {
                     className={errors.username ? "error-input" : ''}
                     placeholder='Username'
                 />
-                {errors.username && <small className="login-error-message">{errors.username.message || errors.username.type}</small>}
-                <input
+                {errors.username && <ErrorMessage >{errors.username.message || errors.username.type}</ErrorMessage>}
+                <Input
                     {...register('password', {
                         required: 'This field is required',
                         minLength: { value: 3, message: 'Password length must be greater than 3' },
@@ -63,11 +64,11 @@ const Login = () => {
                     className={errors.password ? "error-input" : ''}
                     placeholder='Password'
                 />
-                {errors.password && <small className="login-error-message">{errors.password.message || errors.password.type}</small>}
+                {errors.password && <ErrorMessage>{errors.password.message || errors.password.type}</ErrorMessage>}
 
                 <Button disabled={isLoginLoading}>Logín</Button>
 
-            </form>
+            </LoginForm>
         }
     </>
 
