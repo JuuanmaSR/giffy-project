@@ -1,5 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import Button from "components/Button/Button"
+import Link from "components/Button/Button"
 import { css, keyframes } from '@emotion/react'
 
 const tabAnimation = keyframes`
@@ -23,7 +23,7 @@ const PageNotFound = () => {
     return <>
         <div css={pageErrorStyles}>
             <h1 css={titleErrorStyles}> Error 404 </h1>
-            <Button href='/'>Go to home</Button>
+            <Link to='/'>Go to home</Link>
         </div>
 
     </>
