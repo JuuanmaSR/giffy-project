@@ -1,15 +1,14 @@
-import { Button } from "components/Button/styles";
 import React from "react";
 import ReactDOM from "react-dom";
-import './Modal.css'
+import { ModalButton, ModalContainer, ModalContent } from "./styles";
 
 const Modal = ({ children, onClose }) => {
-    return <div className="modal">
-        <div className="modal-content">
-            <Button id="modal-button" onClick={onClose}>X</Button>
+    return <ModalContainer>
+        <ModalContent>
+            <ModalButton onClick={onClose}>X</ModalButton>
             {children}
-        </div>
-    </div>
+        </ModalContent>
+    </ModalContainer>
 }
 
 const ModalPortal = ({ children, onClose }) => {

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import registerService from "services/register";
 import { Formik, Form, Field, ErrorMessage } from 'formik'
-import './Register.css'
 
 const initialValues = {
     username: '',
