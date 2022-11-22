@@ -49,7 +49,7 @@ const SearchForm = ({ initialKeyword = '', initialRating = 'g', initialLanguage 
     }
 
     return <>
-        <SearchFormContainer onSubmit={handleSubmit}>
+        <SearchFormContainer id="search-form" onSubmit={handleSubmit}>
             <Input placeholder='Search gifs here...' type='text' value={keyword}
                 onChange={handleChangeKeyword} />
             <Select value={rating} onChange={handleChangeRating}>

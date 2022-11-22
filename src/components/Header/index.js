@@ -18,7 +18,9 @@ const Header = () => {
                 <HeaderImg alt='Giffy Logo' src={logo} />
             </Button>
             {
-                isLogged ? <Button onClick={handleClick}>Logout</Button> :
+                isLogged ? <div>
+                    <Button onClick={handleClick}>Logout</Button>
+                </div> :
                     <>
                         <div>
                             <Button to="/login">Logín</Button>

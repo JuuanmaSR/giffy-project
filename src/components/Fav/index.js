@@ -36,7 +36,7 @@ const Fav = ({ id }) => {
 
 
     return <>
-        <FavButton onClick={handleClick}>
+        <FavButton id="fav-button" onClick={handleClick}>
             <span aria-label={label} role='img' className={emoji}></span>
         </FavButton>
         {showModal && <ModalPortal onClose={handleClose} {...handleAutoClose()}><Login /></ModalPortal>}

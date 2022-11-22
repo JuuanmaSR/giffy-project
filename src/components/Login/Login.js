@@ -1,9 +1,8 @@
-import { Button } from "components/Button/styles"
 import useUser from "hooks/useUser"
 import React, { useEffect } from "react"
 import { useForm } from 'react-hook-form'
 import { useLocation } from "wouter"
-import { ErrorMessage, WaitingMessage, LoginForm, Input, ErrorInput } from "./styles"
+import { ErrorMessage, WaitingMessage, LoginForm, Input, FormButton as Button } from "./styles"
 import './Login.css'
 
 const Login = () => {
@@ -66,7 +65,7 @@ const Login = () => {
                 />
                 {errors.password && <ErrorMessage>{errors.password.message || errors.password.type}</ErrorMessage>}
 
-                <Button disabled={isLoginLoading}>Logín</Button>
+                <Button id="login-form-button" disabled={isLoginLoading}>Logín</Button>
 
             </LoginForm>
         }

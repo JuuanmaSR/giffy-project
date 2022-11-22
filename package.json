@@ -25,12 +25,20 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "cypress:open": "cypress open",
+    "test:e2e": "cypress run"
   },
   "eslintConfig": {
+    "env": {
+      "cypress/globals": true
+    },
     "extends": [
       "react-app",
       "react-app/jest"
+    ],
+    "plugins": [
+      "cypress"
     ]
   },
   "browserslist": {
@@ -47,6 +55,8 @@
   },
   "devDependencies": {
     "@testing-library/react-hooks": "^8.0.1",
+    "cypress": "^11.1.0",
+    "eslint-plugin-cypress": "^2.12.1",
     "react-test-renderer": "^18.2.0"
   }
 }

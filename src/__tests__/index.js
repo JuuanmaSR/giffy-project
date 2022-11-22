@@ -1,13 +1,23 @@
-import { fireEvent, render, screen, } from '@testing-library/react';
+import React from 'react';
+import '@testing-library/jest-dom/extend-expect'
+import { render, screen, } from '@testing-library/react';
+import { ThemeProvider } from '@emotion/react';
+import { theme } from 'styles';
 import App from 'App';
 
-test('search form could be used', async () => {
-    render(<App />)
-    const input = await screen.findByRole('textbox')
-    fireEvent.change(input, { target: { value: 'Matrix' } })
 
-    fireEvent.submit(input)
-    const title = await screen.findByText('Matrix')
+test('search form render correctly', async () => {
+    render(
+        <ThemeProvider theme={theme}>
+            <App />
+        </ThemeProvider>
+    )
 
-    expect(title).toBeVisible()
+    expect(screen.getByRole('textbox')).toBeInTheDocument()
+    expect(screen.getByText('Buscar')).toBeInTheDocument()
+    expect(screen.getByText('Reset')).toBeInTheDocument()
+    expect(screen.getByText('Giffy')).toBeInTheDocument()
+    expect(screen.getByText('Última busquedas')).toBeInTheDocument()
+   
+
 })

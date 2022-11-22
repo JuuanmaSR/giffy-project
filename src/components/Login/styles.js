@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { Button } from "components/Button/styles";
 import { bps } from "styles";
 
 
@@ -39,4 +40,8 @@ export const Input = styled.input`
     border: none;
     font-size: 1rem;
     margin: 10px;
+`
+
+export const FormButton = styled(Button)`
+    margin-top: 20px;
 `

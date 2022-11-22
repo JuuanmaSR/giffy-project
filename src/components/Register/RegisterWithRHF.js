@@ -2,8 +2,7 @@ import React, { useEffect } from "react";
 import useUser from "hooks/useUser";
 import { useForm } from 'react-hook-form'
 import { useLocation } from 'wouter'
-import { Button } from "components/Button/styles";
-import { ErrorMessage, WaitingMessage, LoginForm as RegisterForm, Input } from "components/Login/styles";
+import { ErrorMessage, WaitingMessage, LoginForm as RegisterForm, Input, FormButton as Button } from "components/Login/styles";
 
 const Register = () => {
 
