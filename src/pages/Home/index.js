@@ -15,7 +15,7 @@ const Home = () => {
                 </title>
             </Helmet>
             <SearchForm/>
-            <h3>Última busquedas</h3>
+            <h3>Últimas busquedas</h3>
             <ListOfGifs gifs={gifs} />
 
             <div className='app-category'>
